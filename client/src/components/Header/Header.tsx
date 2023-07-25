@@ -12,6 +12,7 @@ import {
   HeaderTop,
   HeaderTopItems,
   HeaderWrapper,
+  NavbarDropdownElement,
   NavbarElement,
   NavbarElementText,
   RecallMeButton,
@@ -59,8 +60,7 @@ export const Header: React.FC<HeaderProps> = () => {
             BOTTEC
           </HeaderLogo>
           <HeaderNavbar>
-            <NavbarElement
-              dropdown
+            <NavbarDropdownElement
               onClick={() => setSelectedSection(HeaderPageState.Turnkey)}
               selected={selectedSection === HeaderPageState.Turnkey}
             >
@@ -81,7 +81,7 @@ export const Header: React.FC<HeaderProps> = () => {
                   <a href="#">Чат-боты</a>
                 </DropdownItem>
               </DropdownContent>
-            </NavbarElement>
+            </NavbarDropdownElement>
             <NavbarElement
               onClick={() => setSelectedSection(HeaderPageState.Cases)}
               selected={selectedSection === HeaderPageState.Cases}

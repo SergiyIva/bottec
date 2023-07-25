@@ -39,7 +39,9 @@ export const SocialIcons = styled.div`
   gap: 10px;
 `;
 
-export const SocialIcon = styled.div<{ social: Socials }>`
+export const SocialIcon = styled("div").withConfig({
+  shouldForwardProp: (prop) => !["social"].includes(prop),
+})<{ social: Socials }>`
   height: 40px;
   width: 40px;
   background-color: ${(props) => mapSocialToColor[props.social]};
@@ -97,9 +99,41 @@ export const HeaderNavbar = styled.nav`
   gap: 20px;
 `;
 
-export const NavbarElement = styled.a<{
+export const NavbarDropdownElement = styled("div").withConfig({
+  shouldForwardProp: (prop) => !["selected"].includes(prop),
+})<{
   selected: boolean;
-  dropdown?: boolean;
+}>`
+  transition: 0.3s ease;
+  text-decoration: none;
+  font-size: 17px;
+  padding: ${({ selected }) => (selected ? "15px 10px" : "0px")};
+  color: ${(props) => (props.selected ? colors.purpleMain : "inherit")};
+  line-height: 18px;
+  background-color: ${(props) =>
+    props.selected ? "rgba(114, 82, 220, 14.9%)" : "transparent"};
+  border-radius: ${(props) => (props.selected ? "15px" : "none")};
+  position: relative;
+  cursor: pointer;
+  &:hover {
+    svg > path {
+      stroke: ${colors.purpleMain};
+    }
+    > div {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const NavbarElement = styled("a").withConfig({
+  shouldForwardProp: (prop) => !["selected"].includes(prop),
+})<{
+  selected: boolean;
 }>`
   transition: 0.3s ease;
   text-decoration: none;
@@ -111,28 +145,18 @@ export const NavbarElement = styled.a<{
     props.selected ? "rgba(114, 82, 220, 14.9%)" : "transparent"};
   border-radius: ${(props) => (props.selected ? "15px" : "none")};
 
-  position: relative;
-
   cursor: pointer;
   &:hover {
     color: ${colors.purpleMain};
-    fill: ${colors.purpleMain};
-    svg > path {
-      stroke: ${colors.purpleMain};
-    }
-    > div {
-      ${({ dropdown }) =>
-        dropdown
-          ? "display: flex; flex-direction: column; gap: 4px;"
-          : "display: none"};
-    }
   }
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
-export const NavbarElementText = styled.p<{ selected: boolean }>`
+export const NavbarElementText = styled("p").withConfig({
+  shouldForwardProp: (prop) => !["selected"].includes(prop),
+})<{ selected: boolean }>`
   letter-spacing: ${({ selected }) => (selected ? "0.2px" : "normal")};
   &,
   &::before {
@@ -202,9 +226,8 @@ export const DropdownContent = styled.div`
 `;
 
 export const DropdownItem = styled.div`
-  background: rgba(255, 255, 255, 0.7);
+  background: white;
   border-radius: 8px;
-  backdrop-filter: blur(10px);
   color: ${colors.textBlack};
   padding: 12px 18px;
   display: block;

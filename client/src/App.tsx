@@ -1,9 +1,8 @@
 import React from "react";
-import { Header } from "./components/Header";
-import { HeaderPageState } from "./components/Header/Header.types";
+import { MainPage } from "pages/MainPage";
 
 function App() {
-  return <Header selectedPage={HeaderPageState.None} />;
+  return <MainPage />;
 }
 
 export default App;
