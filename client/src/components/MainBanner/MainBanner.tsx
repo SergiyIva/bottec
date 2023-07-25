@@ -11,7 +11,7 @@ export const MainBanner: React.FC<MainBannerProps> = () => {
   return (
     <MainBannerWrapper>
       <BannerTextSection>
-        <BannerHeading>Дауби</BannerHeading>
+        <BannerHeading>Готовы вывести бизнес на новый уровень?</BannerHeading>
       </BannerTextSection>
     </MainBannerWrapper>
   );
