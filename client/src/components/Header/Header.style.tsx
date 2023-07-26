@@ -12,6 +12,7 @@ export const HeaderWrapper = styled.header`
   backdrop-filter: blur(10px);
   justify-content: center;
   background: rgba(255, 255, 255, 0.7);
+  z-index: 3;
 `;
 export const HeaderTop = styled.div`
   display: flex;
@@ -154,7 +155,7 @@ export const NavbarElement = styled("a").withConfig({
   justify-content: center;
 `;
 
-export const NavbarElementText = styled("p").withConfig({
+export const NavbarElementText = styled("span").withConfig({
   shouldForwardProp: (prop) => !["selected"].includes(prop),
 })<{ selected: boolean }>`
   letter-spacing: ${({ selected }) => (selected ? "0.2px" : "normal")};

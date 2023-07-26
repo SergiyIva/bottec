@@ -6,4 +6,5 @@ export const colors = {
   whatsAppGreen: "#32D431",
   telegramBlue: "#24B4E9",
   purpleDarker: "#6535E5",
+  accentGreen: "#32D431;",
 };
