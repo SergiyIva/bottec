@@ -9,7 +9,7 @@ export const HeaderWrapper = styled.header`
   position: sticky;
   height: 96px;
   top: 0px;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(50px);
   justify-content: center;
   background: rgba(255, 255, 255, 0.7);
   z-index: 3;
@@ -185,7 +185,7 @@ export const NavbarElementText = styled("span").withConfig({
 `;
 
 export const RecallMeButton = styled.button`
-  margin-left: 12px;
+  margin-left: 32px;
   background-color: ${colors.purpleMain};
   font-weight: 500;
   color: white;
@@ -198,7 +198,7 @@ export const RecallMeButton = styled.button`
   transition: background-color 0.5s ease, color 0.5s ease, scale 0.1s ease;
 
   &:hover {
-    background-color: white;
+    background-color: transparent;
     border: 1px solid ${colors.purpleMain};
     color: ${colors.purpleMain};
   }
@@ -236,4 +236,8 @@ export const DropdownItem = styled.div`
   &:hover {
     color: ${colors.purpleMain};
   }
+`;
+
+export const HeaderBottomRight = styled.div`
+  display: flex;
 `;

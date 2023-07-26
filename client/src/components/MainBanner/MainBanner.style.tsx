@@ -1,5 +1,27 @@
 import { colors } from "colors";
-import { styled } from "styled-components";
+import { styled, keyframes } from "styled-components";
+import { fadeIn, fadeInRight, fadeInLeft, zoomIn } from "react-animations";
+
+const fadeInAnimation = keyframes`${fadeIn}`;
+const fadeInRightAnimation = keyframes`${fadeInRight}`;
+const fadeInLeftAnimation = keyframes` 
+  from { 
+    opacity: 0;
+  } 
+  to {
+    opacity: 1;
+  }
+  ${fadeInLeft}
+`;
+const zoomInAnimation = keyframes`
+  from { 
+    opacity: 0;
+  } 
+  to {
+    opacity: 1;
+  }
+  ${zoomIn}
+`;
 
 export const MainBannerWrapper = styled.section`
   width: 96%;
@@ -28,6 +50,7 @@ export const BannerHeading = styled.h1`
   line-height: 72px;
   font-weight: 500;
   width: 527px;
+  animation: ${fadeInAnimation} 1s;
 `;
 
 export const BannerTable = styled.table`
@@ -39,12 +62,14 @@ export const BannerTable = styled.table`
   }
 
   th {
+    opacity: 0;
     font-size: 36px;
     font-style: normal;
     font-weight: 700;
     line-height: 46px;
   }
   td {
+    opacity: 0;
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
@@ -53,6 +78,37 @@ export const BannerTable = styled.table`
     &:not(:last-child) {
       padding-right: 130px;
     }
+  }
+
+  th:nth-child(1) {
+    animation: ${fadeInLeftAnimation} 0.6s;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+  }
+  th:nth-child(2) {
+    animation: ${fadeInLeftAnimation} 0.6s;
+    animation-delay: 1.1s;
+    animation-fill-mode: forwards;
+  }
+  th:nth-child(3) {
+    animation: ${fadeInLeftAnimation} 0.6s;
+    animation-delay: 1.8s;
+    animation-fill-mode: forwards;
+  }
+  td:nth-child(1) {
+    animation: ${zoomInAnimation} 0.3s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+  }
+  td:nth-child(2) {
+    animation: ${zoomInAnimation} 0.3s;
+    animation-delay: 1.6s;
+    animation-fill-mode: forwards;
+  }
+  td:nth-child(3) {
+    animation: ${zoomInAnimation} 0.3s;
+    animation-delay: 2.1s;
+    animation-fill-mode: forwards;
   }
 `;
 
@@ -81,6 +137,7 @@ export const ImageWrap = styled.div`
   bottom: 0;
   right: 22%;
   z-index: 1;
+  animation: ${fadeInRightAnimation} 0.8s;
 `;
 
 export const GreenCircle = styled.div`

@@ -2,8 +2,8 @@ import { colors } from "colors";
 import { styled } from "styled-components";
 
 export const StyledArrowButton = styled("button").withConfig({
-  shouldForwardProp: (prop) => !["outlined"].includes(prop),
-})<{ outlined?: boolean }>`
+  shouldForwardProp: (prop) => !["outlined", "inverted"].includes(prop),
+})<{ outlined?: boolean; inverted?: boolean }>`
   background-color: ${({ outlined }) => (outlined ? "transparent" : "white")};
   color: ${({ outlined }) => (outlined ? "white" : colors.purpleMain)};
   border: 2px solid white;
@@ -16,6 +16,25 @@ export const StyledArrowButton = styled("button").withConfig({
   padding: 10px 8px 10px 20px;
   width: fit-content;
   white-space: nowrap;
+  transition: 0.3s ease;
+
+  &:hover {
+    background-color: ${({ outlined }) => (outlined ? "white" : "transparent")};
+    color: ${({ outlined }) => (outlined ? colors.purpleMain : "white")};
+    div {
+      background-color: ${({ outlined }) =>
+        outlined ? colors.purpleMain : "white"};
+    }
+    div > svg > path:nth-child(1) {
+      fill: ${({ outlined }) => (outlined ? "white" : colors.purpleMain)};
+    }
+    div > svg > path:nth-child(2) {
+      stroke: ${({ outlined }) => (outlined ? "white" : colors.purpleMain)};
+    }
+  }
+  &:active {
+    scale: 1.1;
+  }
 `;
 
 export const ArrowCircle = styled("div").withConfig({

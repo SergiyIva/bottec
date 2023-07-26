@@ -5,6 +5,7 @@ import {
   DropdownContent,
   DropdownItem,
   HeaderBottomItems,
+  HeaderBottomRight,
   HeaderLine,
   HeaderLogo,
   HeaderNavbar,
@@ -59,75 +60,77 @@ export const Header: React.FC<HeaderProps> = () => {
             <BottecSVG />
             BOTTEC
           </HeaderLogo>
-          <HeaderNavbar>
-            <NavbarDropdownElement
-              onClick={() => setSelectedSection(HeaderPageState.Turnkey)}
-              selected={selectedSection === HeaderPageState.Turnkey}
-            >
-              <NavbarElementText
+          <HeaderBottomRight>
+            <HeaderNavbar>
+              <NavbarDropdownElement
+                onClick={() => setSelectedSection(HeaderPageState.Turnkey)}
                 selected={selectedSection === HeaderPageState.Turnkey}
-                data-text={"Разработка под ключ"}
               >
-                Разработка под ключ
-              </NavbarElementText>
-              <StyledDropdownArrow
-                selected={selectedSection === HeaderPageState.Turnkey}
-              />
-              <DropdownContent className="dropdown-content">
-                <DropdownItem>
-                  <a href="#">Webapps</a>
-                </DropdownItem>
-                <DropdownItem>
-                  <a href="#">Чат-боты</a>
-                </DropdownItem>
-              </DropdownContent>
-            </NavbarDropdownElement>
-            <NavbarElement
-              onClick={() => setSelectedSection(HeaderPageState.Cases)}
-              selected={selectedSection === HeaderPageState.Cases}
-            >
-              <NavbarElementText
+                <NavbarElementText
+                  selected={selectedSection === HeaderPageState.Turnkey}
+                  data-text={"Разработка под ключ"}
+                >
+                  Разработка под ключ
+                </NavbarElementText>
+                <StyledDropdownArrow
+                  selected={selectedSection === HeaderPageState.Turnkey}
+                />
+                <DropdownContent className="dropdown-content">
+                  <DropdownItem>
+                    <a href="#">Webapps</a>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <a href="#">Чат-боты</a>
+                  </DropdownItem>
+                </DropdownContent>
+              </NavbarDropdownElement>
+              <NavbarElement
+                onClick={() => setSelectedSection(HeaderPageState.Cases)}
                 selected={selectedSection === HeaderPageState.Cases}
-                data-text={"Кейсы"}
               >
-                Кейсы
-              </NavbarElementText>
-            </NavbarElement>
-            <NavbarElement
-              onClick={() => setSelectedSection(HeaderPageState.Solutions)}
-              selected={selectedSection === HeaderPageState.Solutions}
-            >
-              <NavbarElementText
+                <NavbarElementText
+                  selected={selectedSection === HeaderPageState.Cases}
+                  data-text={"Кейсы"}
+                >
+                  Кейсы
+                </NavbarElementText>
+              </NavbarElement>
+              <NavbarElement
+                onClick={() => setSelectedSection(HeaderPageState.Solutions)}
                 selected={selectedSection === HeaderPageState.Solutions}
-                data-text={"Готовые решения"}
               >
-                Готовые решения
-              </NavbarElementText>
-            </NavbarElement>
-            <NavbarElement
-              onClick={() => setSelectedSection(HeaderPageState.Blog)}
-              selected={selectedSection === HeaderPageState.Blog}
-            >
-              <NavbarElementText
+                <NavbarElementText
+                  selected={selectedSection === HeaderPageState.Solutions}
+                  data-text={"Готовые решения"}
+                >
+                  Готовые решения
+                </NavbarElementText>
+              </NavbarElement>
+              <NavbarElement
+                onClick={() => setSelectedSection(HeaderPageState.Blog)}
                 selected={selectedSection === HeaderPageState.Blog}
-                data-text={"Блог"}
               >
-                Блог
-              </NavbarElementText>
-            </NavbarElement>
-            <NavbarElement
-              onClick={() => setSelectedSection(HeaderPageState.Contacts)}
-              selected={selectedSection === HeaderPageState.Contacts}
-            >
-              <NavbarElementText
+                <NavbarElementText
+                  selected={selectedSection === HeaderPageState.Blog}
+                  data-text={"Блог"}
+                >
+                  Блог
+                </NavbarElementText>
+              </NavbarElement>
+              <NavbarElement
+                onClick={() => setSelectedSection(HeaderPageState.Contacts)}
                 selected={selectedSection === HeaderPageState.Contacts}
-                data-text={"Контакты"}
               >
-                Контакты
-              </NavbarElementText>
-            </NavbarElement>
+                <NavbarElementText
+                  selected={selectedSection === HeaderPageState.Contacts}
+                  data-text={"Контакты"}
+                >
+                  Контакты
+                </NavbarElementText>
+              </NavbarElement>
+            </HeaderNavbar>
             <RecallMeButton>Перезвоните мне</RecallMeButton>
-          </HeaderNavbar>
+          </HeaderBottomRight>
         </HeaderBottomItems>
       </HeaderWrapper>
     </>
