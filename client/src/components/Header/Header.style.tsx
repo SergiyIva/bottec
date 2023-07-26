@@ -3,16 +3,23 @@ import { colors } from "../../colors";
 import { Socials } from "./Header.types";
 import { ReactComponent as DropdownSVG } from "assets/dropdownarrow.svg";
 
-export const HeaderWrapper = styled.header`
+export const HeaderWrapper = styled("header").withConfig({
+  shouldForwardProp: (prop) => !["showMobileNav"].includes(prop),
+})<{ showMobileNav: boolean }>`
   display: flex;
   width: 100%;
   position: sticky;
   height: 96px;
   top: 0px;
   backdrop-filter: blur(50px);
+  transition: 0.3s;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.7);
+  background: ${({ showMobileNav }) =>
+    showMobileNav ? "rgba(255, 255, 255, 1)" : "rgba(255, 255, 255, 0.7)"};
   z-index: 3;
+  @media (max-width: 1075px) {
+    height: 82px;
+  }
 `;
 export const HeaderTop = styled.div`
   display: flex;
@@ -26,6 +33,12 @@ export const HeaderTopItems = styled.div`
   height: 72px;
   align-items: center;
   width: 75%;
+  @media (max-width: 1350px) {
+    width: 95%;
+  }
+  @media (max-width: 1075px) {
+    display: none;
+  }
 `;
 
 const mapSocialToColor = {
@@ -73,9 +86,15 @@ export const HeaderPhoneNumber = styled.a`
 `;
 
 export const HeaderLine = styled.div`
+  @media (max-width: 1350px) {
+    width: 95%;
+  }
   width: 75%;
   height: 1px;
   background-color: ${colors.lightGrey};
+  @media (max-width: 1075px) {
+    display: none;
+  }
 `;
 
 export const HeaderBottomItems = styled.div`
@@ -85,6 +104,16 @@ export const HeaderBottomItems = styled.div`
   align-items: center;
   justify-content: space-between;
   align-content: center;
+  @media (max-width: 1350px) {
+    width: 95%;
+  }
+  @media (max-width: 1075px) {
+    width: 100%;
+  }
+  @media (max-width: 470px) {
+    font-size: 14px;
+    width: 96%;
+  }
 `;
 
 export const HeaderLogo = styled.div`
@@ -93,11 +122,27 @@ export const HeaderLogo = styled.div`
   font-family: "Co Headline Corp Bold";
   font-size: 24px;
   gap: 18px;
+  @media (max-width: 1075px) {
+    margin-left: 26px;
+  }
+  @media (max-width: 470px) {
+    height: 22px;
+    font-size: 14px;
+    margin-left: 14px;
+    gap: 8px;
+    svg {
+      height: 29px;
+      width: fit-content;
+    }
+  }
 `;
 
 export const HeaderNavbar = styled.nav`
   display: flex;
   gap: 20px;
+  @media (max-width: 1075px) {
+    display: none;
+  }
 `;
 
 export const NavbarDropdownElement = styled("div").withConfig({
@@ -194,6 +239,7 @@ export const RecallMeButton = styled.button`
   padding: 0px 26px;
   cursor: pointer;
   font-size: 16px;
+  line-height: 16px;
   border: 1px solid transparent;
   transition: background-color 0.5s ease, color 0.5s ease, scale 0.1s ease;
 
@@ -204,6 +250,18 @@ export const RecallMeButton = styled.button`
   }
   &:active {
     scale: 1.1;
+  }
+
+  @media (max-width: 1075px) {
+    height: 30px;
+    padding: 0 8px;
+    margin-right: 10px;
+  }
+
+  @media (max-width: 470px) {
+    height: 22px;
+    font-size: 8px;
+    margin-right: 0;
   }
 `;
 
@@ -240,4 +298,63 @@ export const DropdownItem = styled.div`
 
 export const HeaderBottomRight = styled.div`
   display: flex;
+  align-items: center;
+  @media (max-width: 1075px) {
+    margin-right: 26px;
+  }
+  @media (max-width: 470px) {
+    margin-right: 0;
+  }
+`;
+
+export const MenuButton = styled.button`
+  user-select: none;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 2px;
+  display: none;
+  scale: 1.3;
+  &:hover {
+    background: rgba(114, 82, 220, 0.1);
+  }
+  &:active {
+    background: rgba(114, 82, 220, 0.2);
+  }
+
+  @media (max-width: 1075px) {
+    display: flex;
+  }
+  @media (max-width: 470px) {
+    scale: 1;
+  }
+`;
+
+export const MobileNavbar = styled.nav`
+  position: fixed;
+  top: 96px;
+  @media (max-width: 1075px) {
+    top: 82px;
+    height: calc(100vh - 82px);
+  }
+  left: 0;
+  width: 100%;
+  background: white;
+  height: 400px;
+  overflow-y: scroll;
+  height: calc(100vh - 96px);
+`;
+
+export const MobileNavbarElement = styled.a`
+  display: flex;
+  padding: 46px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  color: ${colors.textBlack};
 `;
