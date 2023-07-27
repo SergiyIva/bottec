@@ -2,10 +2,13 @@ import React from "react";
 
 import { MainBannerProps } from "./MainBanner.types";
 import {
+  AchievmentHeading,
+  AchievmentText,
   ArrowDownCircle,
+  BannerAchievment,
+  BannerAchievments,
   BannerButtons,
   BannerHeading,
-  BannerTable,
   GreenCircle,
   ImageWrap,
   MainBannerWrapper,
@@ -21,34 +24,32 @@ export const MainBanner: React.FC<MainBannerProps> = () => {
     <MainBannerWrapper>
       <BannerHeading>Готовы вывести бизнес на новый уровень?</BannerHeading>
       <BannerButtons>
-        <ArrowButton>Получить консультацию</ArrowButton>
+        <ArrowButton outlined>Получить консультацию</ArrowButton>
         <ArrowButton outlined>Создать чат-бота</ArrowButton>
       </BannerButtons>
-      <BannerTable>
-        <thead>
-          <tr>
-            <th>230+</th>
-            <th>130</th>
-            <th>510</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              Проектов
-              <br /> реализовано
-            </td>
-            <td>
-              Млн. <br />
-              сэкономлено
-            </td>
-            <td>
-              Бизнес <br />
-              идей реализовано
-            </td>
-          </tr>
-        </tbody>
-      </BannerTable>
+      <BannerAchievments>
+        <BannerAchievment>
+          <AchievmentHeading>230+</AchievmentHeading>
+          <AchievmentText>
+            Проектов
+            <br /> реализовано
+          </AchievmentText>
+        </BannerAchievment>
+        <BannerAchievment>
+          <AchievmentHeading>130</AchievmentHeading>
+          <AchievmentText>
+            Млн. <br />
+            сэкономлено
+          </AchievmentText>
+        </BannerAchievment>
+        <BannerAchievment>
+          <AchievmentHeading>510</AchievmentHeading>
+          <AchievmentText>
+            Бизнес <br />
+            идей реализовано
+          </AchievmentText>
+        </BannerAchievment>
+      </BannerAchievments>
       <ArrowDownCircle>
         <ArrowDownSVG />
       </ArrowDownCircle>

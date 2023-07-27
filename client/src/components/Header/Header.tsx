@@ -14,6 +14,8 @@ import {
   HeaderTopItems,
   HeaderWrapper,
   MenuButton,
+  MobileContactsSection,
+  MobileMenuWrapper,
   MobileNavbar,
   MobileNavbarElement,
   NavbarDropdownElement,
@@ -39,6 +41,8 @@ export const Header: React.FC<HeaderProps> = () => {
   );
 
   const [showMobileNav, setShowMobileNav] = useState<boolean>(false);
+  const [showMobileDropdown, setShowMobileDropdown] = useState<boolean>(false);
+
   useEffect(() => {
     document.body.style.overflow = showMobileNav ? "hidden" : "";
   }, [showMobileNav]);
@@ -76,12 +80,48 @@ export const Header: React.FC<HeaderProps> = () => {
           <HeaderBottomRight>
             {showMobileNav ? (
               <BodyPortal>
-                <MobileNavbar>
-                  <MobileNavbarElement>Разработка под ключ</MobileNavbarElement>
-                  <MobileNavbarElement>Кейсы</MobileNavbarElement>
-                  <MobileNavbarElement>Готовые решения</MobileNavbarElement>
-                  <MobileNavbarElement>Блог</MobileNavbarElement>
-                </MobileNavbar>
+                <MobileMenuWrapper>
+                  <MobileNavbar>
+                    <MobileNavbarElement
+                      onClick={() => setShowMobileDropdown((p) => !p)}
+                    >
+                      Разработка под ключ
+                      <StyledDropdownArrow
+                        mobile
+                        mobileActive={showMobileDropdown}
+                      />
+                    </MobileNavbarElement>
+                    {showMobileDropdown && (
+                      <>
+                        <MobileNavbarElement sub>Webapps</MobileNavbarElement>
+                        <MobileNavbarElement sub>Чат-боты</MobileNavbarElement>
+                      </>
+                    )}
+                    <MobileNavbarElement>Кейсы</MobileNavbarElement>
+                    <MobileNavbarElement>Готовые решения</MobileNavbarElement>
+                    <MobileNavbarElement>Блог</MobileNavbarElement>
+                    <MobileNavbarElement>Контакты</MobileNavbarElement>
+                  </MobileNavbar>
+                  <MobileContactsSection>
+                    <SocialIcons>
+                      <SocialIcon mobile social={Socials.Instagram}>
+                        <InstagramSVG />
+                      </SocialIcon>
+                      <SocialIcon mobile social={Socials.Whatsapp}>
+                        <WhatsappSVG />
+                      </SocialIcon>
+                      <SocialIcon mobile social={Socials.Telegram}>
+                        <TelegramSVG />
+                      </SocialIcon>
+                      <SocialIcon mobile social={Socials.VK}>
+                        <VkSVG />
+                      </SocialIcon>
+                    </SocialIcons>
+                    <HeaderPhoneNumber href="tel://+74952262824" mobile>
+                      +7 ( 495 ) 226 28 24
+                    </HeaderPhoneNumber>
+                  </MobileContactsSection>
+                </MobileMenuWrapper>
               </BodyPortal>
             ) : (
               <HeaderNavbar>

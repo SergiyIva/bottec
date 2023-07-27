@@ -50,14 +50,15 @@ const mapSocialToColor = {
 
 export const SocialIcons = styled.div`
   display: flex;
+  justify-content: center;
   gap: 10px;
 `;
 
 export const SocialIcon = styled("div").withConfig({
-  shouldForwardProp: (prop) => !["social"].includes(prop),
-})<{ social: Socials }>`
-  height: 40px;
-  width: 40px;
+  shouldForwardProp: (prop) => !["social", "mobile"].includes(prop),
+})<{ social: Socials; mobile?: boolean }>`
+  height: ${({ mobile }) => (mobile ? "32px" : "40px")};
+  width: ${({ mobile }) => (mobile ? "32px" : "40px")};
   background-color: ${(props) => mapSocialToColor[props.social]};
   border-radius: 20px;
   display: flex;
@@ -70,9 +71,12 @@ export const SocialIcon = styled("div").withConfig({
   cursor: pointer;
 `;
 
-export const HeaderPhoneNumber = styled.a`
+export const HeaderPhoneNumber = styled("a").withConfig({
+  shouldForwardProp: (prop) => !["mobile"].includes(prop),
+})<{ mobile?: boolean }>`
   display: flex;
-  margin-right: 42px;
+  justify-content: center;
+  margin-right: ${({ mobile }) => (mobile ? "0" : "42px")};
   align-items: center;
   font-weight: 500;
   font-size: 16px;
@@ -265,15 +269,23 @@ export const RecallMeButton = styled.button`
   }
 `;
 
-export const StyledDropdownArrow = styled(DropdownSVG)<{ selected: boolean }>`
+export const StyledDropdownArrow = styled(DropdownSVG).withConfig({
+  shouldForwardProp: (prop) =>
+    !["selected", "mobile", "mobileActive"].includes(prop),
+})<{ selected?: boolean; mobile?: boolean; mobileActive?: boolean }>`
   fill: none;
   margin-left: 8px;
   margin-top: 3px;
   path {
     stroke: ${({ selected }) =>
       selected ? colors.purpleMain : colors.textBlack};
-    stroke-width: ${({ selected }) => (selected ? "2px" : "1px")};
+    stroke-width: ${({ selected, mobile }) =>
+      selected || mobile ? "2px" : "1px"};
   }
+
+  transform: rotate(
+    ${({ mobileActive }) => (mobileActive ? "180deg" : "0deg")}
+  );
 `;
 
 export const DropdownContent = styled.div`
@@ -335,8 +347,11 @@ export const MenuButton = styled.button`
   }
 `;
 
-export const MobileNavbar = styled.nav`
+export const MobileNavbar = styled.nav``;
+
+export const MobileMenuWrapper = styled.div`
   position: fixed;
+  z-index: 4;
   top: 96px;
   @media (max-width: 1075px) {
     top: 82px;
@@ -346,15 +361,33 @@ export const MobileNavbar = styled.nav`
   width: 100%;
   background: white;
   height: 400px;
-  overflow-y: scroll;
   height: calc(100vh - 96px);
+  overflow-y: auto;
 `;
 
-export const MobileNavbarElement = styled.a`
+export const MobileNavbarElement = styled("a").withConfig({
+  shouldForwardProp: (prop) => !["sub"].includes(prop),
+})<{
+  sub?: boolean;
+}>`
+  cursor: pointer;
   display: flex;
-  padding: 46px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: ${({ sub }) => (sub ? "400" : "500")};
   line-height: 24px;
   color: ${colors.textBlack};
+  transition: 0.3s;
+  user-select: none;
+`;
+
+export const MobileContactsSection = styled.div`
+  margin-top: 50px;
+  gap: 24px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
