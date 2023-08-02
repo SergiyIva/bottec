@@ -137,7 +137,6 @@ export const CardDescription = styled.p`
     line-height: 16px;
     margin-top: 12px;
   }
-  text-wrap: balance;
 `;
 
 export const StyledPeopleBubblesSVG = styled(PeopleBubblesSVG)`
