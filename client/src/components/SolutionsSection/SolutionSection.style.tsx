@@ -114,6 +114,7 @@ export const SolutionCardDescription = styled("p").withConfig({
 })<{ small?: boolean }>`
   margin-top: 32px;
   font-size: 16px;
+  text-wrap: balance;
   font-weight: 400;
   line-height: 24px;
   max-width: ${({ small }) => (small ? "280px" : "325px")};

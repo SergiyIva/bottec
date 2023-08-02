@@ -2,7 +2,7 @@ import { colors } from "colors";
 import styled from "styled-components";
 
 import { ReactComponent as PeopleBubblesSVG } from "assets/people-bubbles.svg";
-import { ReactComponent as CalendarSVG } from "assets/Calendar.svg";
+import { ReactComponent as CalendarSVG } from "assets/calendar.svg";
 import { ReactComponent as CallIconSVG } from "assets/call-icon.svg";
 import { ReactComponent as CodeSectionSVG } from "assets/code-section.svg";
 
@@ -137,6 +137,7 @@ export const CardDescription = styled.p`
     line-height: 16px;
     margin-top: 12px;
   }
+  text-wrap: balance;
 `;
 
 export const StyledPeopleBubblesSVG = styled(PeopleBubblesSVG)`
