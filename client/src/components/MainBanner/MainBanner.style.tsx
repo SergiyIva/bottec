@@ -25,7 +25,6 @@ const zoomInAnimation = keyframes`
 
 export const MainBannerWrapper = styled.section`
   width: 96%;
-  display: flex;
   background: ${colors.purpleMain};
   border-radius: 30px;
   min-height: 250px;
@@ -54,17 +53,6 @@ export const BannerButtons = styled.div`
   }
   @media (max-width: 700px) {
     gap: 22px;
-    button {
-      height: 38px;
-      font-size: 11px;
-      div {
-        height: 24px;
-        width: 24px;
-        svg {
-          scale: 0.8;
-        }
-      }
-    }
   }
   @media (max-width: 580px) {
     margin-top: 70px;

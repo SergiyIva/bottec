@@ -6,12 +6,14 @@ import { ReactComponent as SideArrowSVG } from "assets/side-arrow.svg";
 
 export const ArrowButton: React.FC<PropsWithChildren<ArrowButtonProps>> = ({
   outlined,
+  mt,
+  inverted,
   children,
 }) => {
   return (
-    <StyledArrowButton outlined={outlined}>
+    <StyledArrowButton outlined={outlined} mt={mt} inverted={inverted}>
       {children}
-      <ArrowCircle outlined={outlined}>
+      <ArrowCircle outlined={outlined} inverted={inverted}>
         <SideArrowSVG />
       </ArrowCircle>
     </StyledArrowButton>
