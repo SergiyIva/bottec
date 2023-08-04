@@ -1,11 +1,7 @@
 import styled from "styled-components";
 import {Socials} from "../Footer/Footer.types";
 import {colors} from "../../colors";
-import { ReactComponent as FooterSVG } from "assets/footer_logo.svg";
-import { ReactComponent as InstagramSVG } from "assets/instagram.svg";
-import { ReactComponent as WhatsappSVG } from "assets/whatsapp.svg";
-import { ReactComponent as TelegramSVG } from "assets/telegram.svg";
-import { ReactComponent as VkSVG } from "assets/vk.svg";
+
 
 export const FooterWrapper = styled.div`
   background-color: #7252DC;
