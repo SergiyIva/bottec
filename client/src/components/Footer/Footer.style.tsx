@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {Socials} from "../Footer/Footer.types";
 import {colors} from "../../colors";
 
-
+const mobileBreakpoint = "1075px";
 export const FooterWrapper = styled.div`
   background-color: #7252DC;
   color: white;
@@ -12,17 +12,35 @@ export const FooterWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   height: 350px;
+  @media (max-width: ${mobileBreakpoint}) {
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 25px;
+    height: 610px;
+    padding: 28px 98px 0px;
+  }
 `;
 
 export const FooterContainer = styled.div`
   display: flex;
   flex: 1;
   justify-content: space-between;
+  @media (max-width: ${mobileBreakpoint}) {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    //justify-content: norma
+  }
 `;
 
 export const FooterColumn = styled.div`
   display: flex;
   flex-direction: column;
+  @media (max-width: ${mobileBreakpoint}) {
+    align-items: center;
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
 `;
 
 export const FooterLogo = styled.div`
@@ -32,15 +50,15 @@ export const FooterLogo = styled.div`
   font-size: 24px;
   gap: 18px;
   @media (max-width: 1075px) {
-    margin-left: 26px;
+    height: 45px;
+    font-size: 24px;
   }
   @media (max-width: 470px) {
-    height: 22px;
+    height: 45px;
     font-size: 14px;
-    margin-left: 14px;
     gap: 8px;
     svg {
-      height: 29px;
+      height: 45px;
       width: fit-content;
     }
   }
@@ -50,16 +68,30 @@ export const H1 = styled.h1`
   margin-bottom: 21px;
   font-family: "Gordita Medium";
   font-size: 16px;
+  font-weight: 300;
+  @media (max-width: ${mobileBreakpoint}) {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
 `;
 
 export const H2 = styled.h2`
   margin: 0;
   font-family: "Gordita Light";
   font-size: 16px;
+  @media (max-width: ${mobileBreakpoint}) {
+    font-size: 14px;
+  }
 `;
 
 export const PhoneNumber = styled.p`
-  margin-top: 100px;
+  display: flex;
+  position: absolute;
+  top: 229px;
+  @media (max-width: ${mobileBreakpoint}) {
+    top: 460px;
+    font-size: 14px;
+  }
 `;
 
 export const Line = styled.div`
@@ -69,6 +101,11 @@ export const Line = styled.div`
   right: 249px; 
   height: 1px;
   background-color: #ffffff;
+  @media (max-width: ${mobileBreakpoint}) {
+    left: 0;
+    right: 0;
+    bottom: 107px;
+  }
 `;
 export const Copyright = styled.p`
   position: absolute;
@@ -76,6 +113,12 @@ export const Copyright = styled.p`
   left: 250px;
   font-family: "Gordita Light";
   font-size: 16px;
+  @media (max-width: ${mobileBreakpoint}) {
+    position: static;
+    text-align: center;
+    margin-top: 60px;
+    font-size: 14px;
+  }
 `;
 const mapSocialToColor = {
   [Socials.Instagram]: colors.darkPink,
@@ -90,6 +133,15 @@ export const SocialIcons = styled.div`
   gap: 10px;
   bottom: 18px;
   right: 250px;
+  @media (max-width: ${mobileBreakpoint}) {
+    position: static;
+    display: flex;
+    bottom: 0px;
+    width: 100%;
+    gap: 8px;
+    right: 250px;
+    margin-bottom: -10px;
+  }
 `;
 export const SocialIcon = styled("div").withConfig({
   shouldForwardProp: (prop) => !["social", "mobile"].includes(prop),

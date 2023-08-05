@@ -27,7 +27,6 @@ export const Footer = () => {
             <FooterSVG />
             BOTTEC
           </FooterLogo>
-          <PhoneNumber>+7 ( 495 ) 226 28 24</PhoneNumber>
         </FooterColumn>
         <FooterColumn>
           <H1>Разработка под ключ</H1>
@@ -47,6 +46,8 @@ export const Footer = () => {
           <H2>Сonsectetur</H2>
           <H2>Suspendisse</H2>
         </FooterColumn>
+        <PhoneNumber>+7 ( 495 ) 226 28 24</PhoneNumber>
+        <Copyright>© Bottec 2022</Copyright>
         <SocialIcons>
           <SocialIcon social={Socials.Instagram}>
             <InstagramSVG />
@@ -63,7 +64,6 @@ export const Footer = () => {
         </SocialIcons>
       </FooterContainer>
       <Line />
-      <Copyright>© Bottec 2022</Copyright>
     </FooterWrapper>
   );
 };
