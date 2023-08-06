@@ -35,6 +35,7 @@ export const Title_contact = styled.h1`
   line-height: 52px;
   z-index: 1;
   @media (max-width: 580px) {
+  width: 320px;
   font-size: 24pt;
   line-height: 30px;
   }
