@@ -7,6 +7,7 @@ import { ReviewsSection } from "components/ReviewsSection";
 import { SolutionSection } from "components/SolutionsSection/SolutionSection";
 import { WhyUsSection } from "components/WhyUsSection";
 import { Footer } from "components/Footer";
+import { NeedConsultSection } from "components/NeedConsultSection"
 import React from "react";
 
 export const MainPage: React.FC = () => {
@@ -19,6 +20,7 @@ export const MainPage: React.FC = () => {
         <WhyUsSection />
         <ReviewsSection />
         <RequestSection />
+        <NeedConsultSection />
         <Footer />
       </PageLayout>
     </>

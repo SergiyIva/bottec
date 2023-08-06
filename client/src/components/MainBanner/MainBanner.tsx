@@ -4,7 +4,7 @@ import { MainBannerProps } from "./MainBanner.types";
 import {
   AchievmentHeading,
   AchievmentText,
-  ArrowDownCircle,
+  ArrowDownCircle,  
   BannerAchievment,
   BannerAchievments,
   BannerButtons,

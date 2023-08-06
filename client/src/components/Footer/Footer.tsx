@@ -11,16 +11,21 @@ import {
   Line,
   Copyright,
   SocialIcons,
-  SocialIcon
+  SocialIcon,
+  ArrowDownCircleafooter
 } from "./Footer.style";
 import { ReactComponent as FooterSVG } from "assets/footer_logo.svg";
 import { ReactComponent as InstagramSVG } from "assets/instagram.svg";
 import { ReactComponent as WhatsappSVG } from "assets/whatsapp.svg";
 import { ReactComponent as TelegramSVG } from "assets/telegram.svg";
 import { ReactComponent as VkSVG } from "assets/vk.svg";
+import { ReactComponent as ArrowDownSVG } from "assets/down-arrow.svg";
 export const Footer = () => {
   return (
     <FooterWrapper>
+      <ArrowDownCircleafooter>
+          <ArrowDownSVG />
+        </ArrowDownCircleafooter>
       <FooterContainer>
         <FooterColumn>
           <FooterLogo>

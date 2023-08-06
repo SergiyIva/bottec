@@ -4,6 +4,7 @@ import {colors} from "../../colors";
 
 const mobileBreakpoint = "1075px";
 export const FooterWrapper = styled.div`
+  border-top: 0.1px solid rgba(255, 255, 255, 0.2);
   background-color: #7252DC;
   color: white;
   padding: 75px 250px 29px;
@@ -32,7 +33,24 @@ export const FooterContainer = styled.div`
     //justify-content: norma
   }
 `;
-
+export const ArrowDownCircleafooter = styled.div`
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+  justify-content: center;
+  background-color: ${colors.purpleMain};
+  position: absolute;
+  left: calc(85% - 15px);
+  bottom: 325px;
+  box-shadow: 0px 3px 6px #00000029;
+  cursor: pointer;
+  svg {
+    transform: rotate(270deg);
+  }
+`;
 export const FooterColumn = styled.div`
   display: flex;
   flex-direction: column;
@@ -83,10 +101,28 @@ export const H2 = styled.h2`
   margin: 0;
   font-family: "Gordita Light";
   font-size: 16px;
+  cursor: pointer;
   @media (max-width: ${mobileBreakpoint}) {
     font-size: 14px;
     font-family: "Gordita Light";
     font-weight: 400;
+  }
+
+  /* Анимация при наведении */
+  position: relative;
+
+  &:hover {
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      width: 55%;
+      height: 1px;
+      background-color: #ffffff;
+      transform: scaleX(1.2);
+      transition: transform 1s ease-in-out;
+    }
   }
 `;
 
@@ -95,6 +131,7 @@ export const PhoneNumber = styled.p`
   position: absolute;
   top: 229px;
   font-family: "Gordita Medium";
+  cursor: pointer;
   @media (max-width: ${mobileBreakpoint}) {
     top: 460px;
     font-size: 14px;
