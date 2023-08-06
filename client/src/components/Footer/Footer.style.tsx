@@ -75,6 +75,7 @@ export const H1 = styled.h1`
     font-size: 14px;
     font-family: "Gordita Medium";
     margin-bottom: 5px;
+    font-weight: 500;
   }
 `;
 
@@ -82,9 +83,10 @@ export const H2 = styled.h2`
   margin: 0;
   font-family: "Gordita Light";
   font-size: 16px;
-  font-family: "Gordita Light";
   @media (max-width: ${mobileBreakpoint}) {
     font-size: 14px;
+    font-family: "Gordita Light";
+    font-weight: 400;
   }
 `;
 

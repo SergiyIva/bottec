@@ -133,10 +133,10 @@ export const HeaderLogo = styled.div`
     height: 22px;
     font-size: 14px;
     margin-left: 14px;
-    gap: 8px;
+    //gap: 8px;
     svg {
       height: 29px;
-      width: fit-content;
+      //width: fit-content;
     }
   }
 `;
