@@ -51,15 +51,17 @@ export const FooterLogo = styled.div`
   gap: 18px;
   @media (max-width: 1075px) {
     height: 45px;
+    font-family: "Co Headline Corp Bold";
     font-size: 24px;
   }
   @media (max-width: 470px) {
     height: 45px;
     font-size: 14px;
-    gap: 8px;
+    //gap: 8px;
     svg {
       height: 45px;
-      width: fit-content;
+      font-family: "Co Headline Corp Bold";
+      //width: fit-content;
     }
   }
 `;
@@ -71,6 +73,7 @@ export const H1 = styled.h1`
   font-weight: 300;
   @media (max-width: ${mobileBreakpoint}) {
     font-size: 14px;
+    font-family: "Gordita Medium";
     margin-bottom: 5px;
   }
 `;
@@ -79,6 +82,7 @@ export const H2 = styled.h2`
   margin: 0;
   font-family: "Gordita Light";
   font-size: 16px;
+  font-family: "Gordita Light";
   @media (max-width: ${mobileBreakpoint}) {
     font-size: 14px;
   }
@@ -88,9 +92,11 @@ export const PhoneNumber = styled.p`
   display: flex;
   position: absolute;
   top: 229px;
+  font-family: "Gordita Medium";
   @media (max-width: ${mobileBreakpoint}) {
     top: 460px;
     font-size: 14px;
+    font-family: "Gordita Medium";
   }
 `;
 
@@ -114,6 +120,7 @@ export const Copyright = styled.p`
   font-family: "Gordita Light";
   font-size: 16px;
   @media (max-width: ${mobileBreakpoint}) {
+    font-family: "Gordita Light";
     position: static;
     text-align: center;
     margin-top: 60px;
