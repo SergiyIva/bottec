@@ -86,12 +86,10 @@ export const FooterLogo = styled.div`
 
 export const H1 = styled.h1`
   margin-bottom: 21px;
-  font-family: "Gordita Medium";
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   @media (max-width: ${mobileBreakpoint}) {
     font-size: 14px;
-    font-family: "Gordita Medium";
     margin-bottom: 5px;
     font-weight: 500;
   }
@@ -99,12 +97,10 @@ export const H1 = styled.h1`
 
 export const H2 = styled.h2`
   margin: 0;
-  font-family: "Gordita Light";
   font-size: 16px;
   cursor: pointer;
   @media (max-width: ${mobileBreakpoint}) {
     font-size: 14px;
-    font-family: "Gordita Light";
     font-weight: 400;
   }
 
@@ -130,12 +126,10 @@ export const PhoneNumber = styled.p`
   display: flex;
   position: absolute;
   top: 229px;
-  font-family: "Gordita Medium";
   cursor: pointer;
   @media (max-width: ${mobileBreakpoint}) {
     top: 460px;
     font-size: 14px;
-    font-family: "Gordita Medium";
   }
 `;
 
@@ -156,10 +150,8 @@ export const Copyright = styled.p`
   position: absolute;
   bottom: 26px;
   left: 250px;
-  font-family: "Gordita Light";
   font-size: 16px;
   @media (max-width: ${mobileBreakpoint}) {
-    font-family: "Gordita Light";
     position: static;
     text-align: center;
     margin-top: 60px;

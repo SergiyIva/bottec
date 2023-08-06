@@ -5,6 +5,10 @@ import {
     Title_contact,
     Subtitle_contact,
     Button_contact,
+    TransparentCircleContainer_contact,
+    TransparentCircle_contact,
+    TransparentCircleContainer_contactbottom,
+    TransparentCircle_contactbottom
 } from "./NeedConsultSection.style";
 export const NeedConsultSection = () => {
   return (
@@ -22,6 +26,12 @@ export const NeedConsultSection = () => {
             Отправить заявку
         </Button_contact>
       </NeedConsultContainer>
+      <TransparentCircleContainer_contact>
+        <TransparentCircle_contact />
+      </TransparentCircleContainer_contact>
+      <TransparentCircleContainer_contactbottom>
+        <TransparentCircle_contactbottom />
+      </TransparentCircleContainer_contactbottom>
     </NeedConsultWrapper>
   );
 };
