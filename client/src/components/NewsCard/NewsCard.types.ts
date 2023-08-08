@@ -1,4 +1,4 @@
-import { NewsPiece } from "components/common/NewsSection/NewsSection.types";
+import { NewsPiece } from "components/NewsSection/NewsSection.types";
 
 export type NewsCardProps = {
   newsPiece: NewsPiece;

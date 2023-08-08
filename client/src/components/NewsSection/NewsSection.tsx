@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { NewsPiece, NewsSectionProps } from "./NewsSection.types";
 import {
@@ -8,8 +8,8 @@ import {
   NewsSliderHider,
   SliderButton,
 } from "./NewsSection.style";
-import { SectionTitle, SectionTitleHighlight } from "../Section.style";
-import { SectionChip } from "../SectionChip";
+import { SectionTitle, SectionTitleHighlight } from "../common/Section.style";
+import { SectionChip } from "../common/SectionChip";
 import { useMediaQuery } from "react-responsive";
 import { colors } from "colors";
 import { NewsCard } from "components/NewsCard";
@@ -25,6 +25,7 @@ export const NewsSection: React.FC<NewsSectionProps> = () => {
     "#15B85B",
     colors.purpleMain,
     "#EE7141",
+    "#15B85B",
   ];
   const news: NewsPiece[] = [
     {
@@ -63,9 +64,11 @@ export const NewsSection: React.FC<NewsSectionProps> = () => {
         "Чат-бот — это программа, которая имитирует реальный разговор с пользователем",
     },
   ];
+
+  const [selectedNews, setSelectedNews] = useState<number>(0);
   return (
     <NewsSectionWrap>
-      <SectionChip color="#C2FDC5" textColor={colors.textBlack}>
+      <SectionChip color="#C2FDC5" textColor={colors.textBlack} mt="98px">
         Интересно
       </SectionChip>
       <SectionTitle mt={mobile ? "40px" : "16px"}>
@@ -76,7 +79,7 @@ export const NewsSection: React.FC<NewsSectionProps> = () => {
       </SectionTitle>
       <NewsSlider>
         <NewsSliderHider>
-          <NewsSliderContent>
+          <NewsSliderContent selectedNews={selectedNews}>
             {news.map((n, i) => (
               <NewsCard
                 newsPiece={n}
@@ -86,10 +89,15 @@ export const NewsSection: React.FC<NewsSectionProps> = () => {
             ))}
           </NewsSliderContent>
         </NewsSliderHider>
-        <SliderButton inverse>
+        <SliderButton
+          inverse
+          onClick={() => setSelectedNews((prev) => (prev === 0 ? 0 : prev - 1))}
+        >
           <SideArrowSVG />
         </SliderButton>
-        <SliderButton>
+        <SliderButton
+          onClick={() => setSelectedNews((prev) => (prev === 2 ? 2 : prev + 1))}
+        >
           <SideArrowSVG />
         </SliderButton>
       </NewsSlider>

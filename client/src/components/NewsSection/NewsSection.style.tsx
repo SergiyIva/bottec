@@ -2,22 +2,15 @@ import { colors } from "colors";
 import styled from "styled-components";
 
 export const NewsSectionWrap = styled.section`
-  margin-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 75%;
-
-  @media (max-width: 1350px) {
-    width: 95%;
-  }
-  @media (max-width: 1050px) {
-    margin-top: 42px;
-  }
+  width: 100%;
+  background-color: ${colors.backgroundGray};
 `;
 
 export const NewsSlider = styled.div`
-  width: 100%;
+  width: 1422px;
   position: relative;
   margin-top: 100px;
   height: 515px;
@@ -32,11 +25,19 @@ export const NewsSliderHider = styled.div`
   overflow: hidden;
 `;
 
-export const NewsSliderContent = styled.div`
+export const NewsSliderContent = styled("div").withConfig({
+  shouldForwardProp: (prop) => !["selectedNews"].includes(prop),
+})<{
+  selectedNews: number;
+}>`
   height: 100%;
   width: fit-content;
   display: flex;
   gap: 30px;
+  position: absolute;
+  top: 0;
+  transition: 0.5s ease-in-out;
+  left: -${({ selectedNews }) => selectedNews * 484}px;
 `;
 
 export const SliderButton = styled("button").withConfig({
