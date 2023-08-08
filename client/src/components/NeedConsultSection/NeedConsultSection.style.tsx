@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const NeedConsultWrapper = styled.div`
-  background-color: #7252DC;
+  background-color: #7252dc;
   height: 548px;
   width: 100%;
   display: flex;
@@ -9,7 +9,7 @@ export const NeedConsultWrapper = styled.div`
   align-items: center;
   flex-direction: column;
   @media (max-width: 580px) {
-  height: 330px;
+    height: 330px;
   }
 `;
 
@@ -34,10 +34,11 @@ export const Title_contact = styled.h1`
   font-size: 48pt;
   line-height: 52px;
   z-index: 1;
+  font-weight: 500;
   @media (max-width: 580px) {
-  width: 320px;
-  font-size: 24pt;
-  line-height: 30px;
+    width: 320px;
+    font-size: 24pt;
+    line-height: 30px;
   }
 `;
 
@@ -49,17 +50,17 @@ export const Subtitle_contact = styled.h2`
   width: 585px;
   z-index: 1;
   @media (max-width: 580px) {
-   margin-top: 30px;
-   font-size: 12pt;
-   line-height: 15px;
-   width: 330px;
+    margin-top: 30px;
+    font-size: 12pt;
+    line-height: 15px;
+    width: 330px;
   }
 `;
 
 export const Button_contact = styled.button`
   background-color: white;
   display: flex;
-  color: #7252DC;
+  color: #7252dc;
   border: none;
   padding: 10px 20px;
   font-size: 16pt;
@@ -69,15 +70,16 @@ export const Button_contact = styled.button`
   width: 354px;
   height: 60px;
   z-index: 1;
+  font-weight: 500;
   justify-content: center;
   align-items: center;
   @media (max-width: 580px) {
-  width: 200px;
-  height: 32px;
-  font-size: 12pt;
-  align-items: center;
-  justify-content: center;
-  margin-top: 40px;
+    width: 200px;
+    height: 32px;
+    font-size: 12pt;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
   }
 `;
 
@@ -88,14 +90,14 @@ export const TransparentCircleContainer_contact = styled.div`
   overflow: hidden;
   left: 85px;
   @media (max-width: 1550px) {
-  left: 35px;
-  width: 495px;
-  height: 495px;
+    left: 35px;
+    width: 495px;
+    height: 495px;
   }
   @media (max-width: 580px) {
-  width: 124px;
-  height: 124px;
-  left: 0px;
+    width: 124px;
+    height: 124px;
+    left: 0px;
   }
 `;
 
@@ -108,15 +110,15 @@ export const TransparentCircle_contact = styled.div`
   border-radius: 50%;
   bottom: 200px;
   @media (max-width: 1550px) {
-  width: 485px;
-  height: 485px;
-  bottom: 220px;
+    width: 485px;
+    height: 485px;
+    bottom: 220px;
   }
   @media (max-width: 580px) {
-  width: 124px;
-  height: 124px;
-  bottom: 5px;
-  right: 35px;
+    width: 124px;
+    height: 124px;
+    bottom: 5px;
+    right: 35px;
   }
 `;
 export const TransparentCircleContainer_contactbottom = styled.div`
@@ -127,15 +129,15 @@ export const TransparentCircleContainer_contactbottom = styled.div`
   right: 85px;
   margin-top: 427px;
   @media (max-width: 1550px) {
-  right: 85px;
-  width: 330px;
-  height: 330px;
+    right: 85px;
+    width: 330px;
+    height: 330px;
   }
   @media (max-width: 580px) {
-  width: 98px;
-  height: 98px;
-  margin-top: 282px;
-  left: 290px;
+    width: 98px;
+    height: 98px;
+    margin-top: 282px;
+    left: 290px;
   }
 `;
 
@@ -147,12 +149,12 @@ export const TransparentCircle_contactbottom = styled.div`
   position: absolute;
   border-radius: 50%;
   @media (max-width: 1550px) {
-  width: 330px;
-  height: 330px;
+    width: 330px;
+    height: 330px;
   }
   @media (max-width: 580px) {
-  width: 98px;
-  height: 98px;
-  left: 10px;
+    width: 98px;
+    height: 98px;
+    left: 10px;
   }
 `;

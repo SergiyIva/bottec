@@ -179,3 +179,61 @@ export const StyledSocialsCircleMobile = styled(SocialsCircleMobileSVG)`
   bottom: -20%;
   width: 100%;
 `;
+
+const realizationMatcher = {
+  width: ["755px", "598px", "439px", "303px"],
+  bottom: ["-113px", "-34px", "44px", "113px"],
+  right: ["23px", "101px", "180px", "249px"],
+  widthSmall: ["293px", "216px", "158px", "109px"],
+  bottomSmall: ["-35px", "-7px", "21px", "46px"],
+  rightSmall: ["3px", "-32px", "60px", "85px"],
+};
+
+const turnKeyMatcher = {
+  width: ["424px", "613px", "834px", "1054px"],
+  top: ["-60px", "-155px", "-260px", "-375px"],
+  left: ["-60px", "-155px", "-260px", "-375px"],
+  widthSmall: ["240px", "347px", "472px", "596px"],
+  topSmall: ["-35px", "-87px", "-148px", "-212px"],
+  leftSmall: ["-34px", "-87px", "-147px", "-212px"],
+};
+
+const matchCircle = (
+  property: string,
+  realization: boolean | undefined,
+  circleno: number
+) => {
+  return realization
+    ? realizationMatcher[property as keyof typeof realizationMatcher][
+        circleno - 1
+      ]
+    : turnKeyMatcher[property as keyof typeof turnKeyMatcher][circleno - 1];
+};
+
+export const PulsingCircle = styled("div").withConfig({
+  shouldForwardProp: (prop) => !["cirlceno", "realization"].includes(prop),
+})<{ circleno: number; realization?: boolean }>`
+  width: ${({ circleno, realization }) =>
+    matchCircle("width", realization, circleno)};
+  height: ${({ circleno, realization }) =>
+    matchCircle("width", realization, circleno)};
+  border-radius: 50%;
+  background: #7252dc;
+  box-shadow: 0px 3px 6px 0px #4d0cac inset;
+  position: absolute;
+  bottom: ${({ circleno, realization }) =>
+    matchCircle("bottom", realization, circleno)};
+  right: ${({ circleno, realization }) =>
+    matchCircle("right", realization, circleno)};
+
+  @media (max-width: 680px) {
+    width: ${({ circleno, realization }) =>
+      matchCircle("widthSmall", realization, circleno)};
+    height: ${({ circleno, realization }) =>
+      matchCircle("widthSmall", realization, circleno)};
+    bottom: ${({ circleno, realization }) =>
+      matchCircle("bottomSmall", realization, circleno)};
+    right: ${({ circleno, realization }) =>
+      matchCircle("rightSmall", realization, circleno)};
+  }
+`;

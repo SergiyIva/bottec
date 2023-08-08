@@ -8,6 +8,7 @@ import {
   DevelopGrid,
   DevelopSectionWrap,
   IphoneMockup,
+  PulsingCircle,
   StyledConstructorSVG,
   StyledMobileConstructorSVG,
   StyledSocialsCircle,
@@ -71,6 +72,10 @@ export const DevelopSection: React.FC<DevelopSectionProps> = () => {
             <br /> на конструкторе
           </DevelopCardText>
           {tablet ? <StyledMobileConstructorSVG /> : <StyledConstructorSVG />}
+          <PulsingCircle circleno={1} realization />
+          <PulsingCircle circleno={2} realization />
+          <PulsingCircle circleno={3} realization />
+          <PulsingCircle circleno={4} realization />
         </DevelopCard>
         <DevelopCard
           ref={secondCardRef}
@@ -82,6 +87,7 @@ export const DevelopSection: React.FC<DevelopSectionProps> = () => {
             Разработка <br /> чат-бота под ключ
           </DevelopCardText>
           {mobile ? <StyledSocialsCircleMobile /> : <StyledSocialsCircle />}
+
           <IphoneMockup src={iphonemu} />
         </DevelopCard>
         <DevelopCard

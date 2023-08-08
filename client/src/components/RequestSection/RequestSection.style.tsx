@@ -9,7 +9,7 @@ export const RequestSectionWrap = styled.section`
   overflow: hidden;
   display: flex;
   justify-content: space-between;
-  padding: 110px 300px 80px 300px;
+  padding: 110px 15% 80px 15%;
 
   @media (max-width: 1050px) {
     margin-top: 50px;

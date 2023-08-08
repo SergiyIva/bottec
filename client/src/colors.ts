@@ -10,4 +10,5 @@ export const colors = {
   accentGreen: "#32D431;",
   backgroundGray: "#FAFAFA",
   lightShadow: "#F6F6F6",
+  textFade: "#d3d3d3",
 };
