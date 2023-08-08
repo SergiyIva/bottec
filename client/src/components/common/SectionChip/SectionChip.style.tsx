@@ -2,13 +2,14 @@ import { colors } from "colors";
 import styled from "styled-components";
 
 export const SectionChipWrap = styled("div").withConfig({
-  shouldForwardProp: (prop) => !["color", "mt"].includes(prop),
+  shouldForwardProp: (prop) => !["color", "mt", "textColor"].includes(prop),
 })<{
   color?: string;
+  textColor?: string;
   mt?: string;
 }>`
   background-color: ${({ color }) => (color ? color : colors.purpleMain)};
-  color: white;
+  color: ${({ textColor }) => (textColor ? textColor : "white")};
   height: 42px;
   text-align: center;
   font-size: 20px;

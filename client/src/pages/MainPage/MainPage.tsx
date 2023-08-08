@@ -10,6 +10,7 @@ import { Footer } from "components/Footer";
 import { NeedConsultSection } from "components/NeedConsultSection";
 import React from "react";
 import { RoadmapSection } from "components/RoadmapSection";
+import { NewsSection } from "components/common/NewsSection";
 
 export const MainPage: React.FC = () => {
   return (
@@ -22,6 +23,7 @@ export const MainPage: React.FC = () => {
         <ReviewsSection />
         <RequestSection />
         <RoadmapSection />
+        <NewsSection />
         <NeedConsultSection />
         <Footer />
       </PageLayout>

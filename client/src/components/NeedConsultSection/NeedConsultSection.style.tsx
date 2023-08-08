@@ -29,15 +29,15 @@ export const NeedConsultContainer = styled.div`
 `;
 
 export const Title_contact = styled.h1`
-  width: 500px;
+  width: 540px;
   text-align: center;
-  font-size: 48pt;
+  font-size: 48px;
   line-height: 52px;
   z-index: 1;
   font-weight: 500;
   @media (max-width: 580px) {
     width: 320px;
-    font-size: 24pt;
+    font-size: 24px;
     line-height: 30px;
   }
 `;
@@ -51,7 +51,7 @@ export const Subtitle_contact = styled.h2`
   z-index: 1;
   @media (max-width: 580px) {
     margin-top: 30px;
-    font-size: 12pt;
+    font-size: 12px;
     line-height: 15px;
     width: 330px;
   }
@@ -63,7 +63,7 @@ export const Button_contact = styled.button`
   color: #7252dc;
   border: none;
   padding: 10px 20px;
-  font-size: 16pt;
+  font-size: 16px;
   cursor: pointer;
   margin-top: 72px;
   border-radius: 15px;
@@ -76,7 +76,7 @@ export const Button_contact = styled.button`
   @media (max-width: 580px) {
     width: 200px;
     height: 32px;
-    font-size: 12pt;
+    font-size: 12px;
     align-items: center;
     justify-content: center;
     margin-top: 40px;
