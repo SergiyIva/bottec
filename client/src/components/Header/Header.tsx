@@ -34,14 +34,27 @@ import { ReactComponent as BottecSVG } from "assets/bottec.svg";
 import { ReactComponent as BurgerSVG } from "assets/burger.svg";
 import { ReactComponent as CloseSVG } from "assets/close-round.svg";
 import { BodyPortal } from "components/common/BodyPortal";
+import { Link, useNavigate } from "react-router-dom";
 
-export const Header: React.FC<HeaderProps> = () => {
-  const [selectedSection, setSelectedSection] = useState<HeaderPageState>(
-    HeaderPageState.Turnkey
-  );
+const urlPageStateMap = {
+  "/": HeaderPageState.None,
+  "/webapps": HeaderPageState.Turnkey,
+  "/chatbots": HeaderPageState.Turnkey,
+};
 
+export const Header: React.FC<HeaderProps> = ({
+  selectedPage,
+  onPageChange,
+}) => {
   const [showMobileNav, setShowMobileNav] = useState<boolean>(false);
   const [showMobileDropdown, setShowMobileDropdown] = useState<boolean>(false);
+  const navigate = useNavigate();
+
+  const onNavigate = (e: React.MouseEvent, url: string) => {
+    e.preventDefault();
+    onPageChange(urlPageStateMap[url as keyof typeof urlPageStateMap]);
+    navigate(url);
+  };
 
   useEffect(() => {
     document.body.style.overflow = showMobileNav ? "hidden" : "";
@@ -73,7 +86,7 @@ export const Header: React.FC<HeaderProps> = () => {
       </HeaderTop>
       <HeaderWrapper showMobileNav={showMobileNav}>
         <HeaderBottomItems>
-          <HeaderLogo>
+          <HeaderLogo onClick={(e) => onNavigate(e, "/")}>
             <BottecSVG />
             BOTTEC
           </HeaderLogo>
@@ -94,7 +107,12 @@ export const Header: React.FC<HeaderProps> = () => {
                     {showMobileDropdown && (
                       <>
                         <MobileNavbarElement sub>Webapps</MobileNavbarElement>
-                        <MobileNavbarElement sub>Чат-боты</MobileNavbarElement>
+                        <MobileNavbarElement
+                          sub
+                          onClick={(e) => onNavigate(e, "/chatbots")}
+                        >
+                          Чат-боты
+                        </MobileNavbarElement>
                       </>
                     )}
                     <MobileNavbarElement>Кейсы</MobileNavbarElement>
@@ -126,66 +144,66 @@ export const Header: React.FC<HeaderProps> = () => {
             ) : (
               <HeaderNavbar>
                 <NavbarDropdownElement
-                  onClick={() => setSelectedSection(HeaderPageState.Turnkey)}
-                  selected={selectedSection === HeaderPageState.Turnkey}
+                  selected={selectedPage === HeaderPageState.Turnkey}
                 >
                   <NavbarElementText
-                    selected={selectedSection === HeaderPageState.Turnkey}
+                    selected={selectedPage === HeaderPageState.Turnkey}
                     data-text={"Разработка под ключ"}
                   >
                     Разработка под ключ
                   </NavbarElementText>
                   <StyledDropdownArrow
-                    selected={selectedSection === HeaderPageState.Turnkey}
+                    selected={selectedPage === HeaderPageState.Turnkey}
                   />
-                  <DropdownContent className="dropdown-content">
+                  <DropdownContent
+                    selected={selectedPage === HeaderPageState.Turnkey}
+                  >
                     <DropdownItem>
                       <a href="#">Webapps</a>
                     </DropdownItem>
                     <DropdownItem>
-                      <a href="#">Чат-боты</a>
+                      <Link
+                        to="/chatbots"
+                        onClick={(e) => onNavigate(e, "/chatbots")}
+                      >
+                        Чат-боты
+                      </Link>
                     </DropdownItem>
                   </DropdownContent>
                 </NavbarDropdownElement>
                 <NavbarElement
-                  onClick={() => setSelectedSection(HeaderPageState.Cases)}
-                  selected={selectedSection === HeaderPageState.Cases}
+                  selected={selectedPage === HeaderPageState.Cases}
                 >
                   <NavbarElementText
-                    selected={selectedSection === HeaderPageState.Cases}
+                    selected={selectedPage === HeaderPageState.Cases}
                     data-text={"Кейсы"}
                   >
                     Кейсы
                   </NavbarElementText>
                 </NavbarElement>
                 <NavbarElement
-                  onClick={() => setSelectedSection(HeaderPageState.Solutions)}
-                  selected={selectedSection === HeaderPageState.Solutions}
+                  selected={selectedPage === HeaderPageState.Solutions}
                 >
                   <NavbarElementText
-                    selected={selectedSection === HeaderPageState.Solutions}
+                    selected={selectedPage === HeaderPageState.Solutions}
                     data-text={"Готовые решения"}
                   >
                     Готовые решения
                   </NavbarElementText>
                 </NavbarElement>
-                <NavbarElement
-                  onClick={() => setSelectedSection(HeaderPageState.Blog)}
-                  selected={selectedSection === HeaderPageState.Blog}
-                >
+                <NavbarElement selected={selectedPage === HeaderPageState.Blog}>
                   <NavbarElementText
-                    selected={selectedSection === HeaderPageState.Blog}
+                    selected={selectedPage === HeaderPageState.Blog}
                     data-text={"Блог"}
                   >
                     Блог
                   </NavbarElementText>
                 </NavbarElement>
                 <NavbarElement
-                  onClick={() => setSelectedSection(HeaderPageState.Contacts)}
-                  selected={selectedSection === HeaderPageState.Contacts}
+                  selected={selectedPage === HeaderPageState.Contacts}
                 >
                   <NavbarElementText
-                    selected={selectedSection === HeaderPageState.Contacts}
+                    selected={selectedPage === HeaderPageState.Contacts}
                     data-text={"Контакты"}
                   >
                     Контакты

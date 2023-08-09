@@ -120,12 +120,13 @@ export const HeaderBottomItems = styled.div`
   }
 `;
 
-export const HeaderLogo = styled.div`
+export const HeaderLogo = styled.a`
   display: flex;
   align-items: center;
   font-family: "Co Headline Corp Bold";
   font-size: 24px;
   gap: 18px;
+  cursor: pointer;
   @media (max-width: 1075px) {
     margin-left: 26px;
   }
@@ -157,12 +158,13 @@ export const NavbarDropdownElement = styled("div").withConfig({
   transition: 0.3s ease;
   text-decoration: none;
   font-size: 17px;
-  padding: ${({ selected }) => (selected ? "15px 10px" : "0px")};
+  /* padding: ${({ selected }) => (selected ? "15px 10px" : "0px")}; */
+  padding: 15px 10px;
   color: ${(props) => (props.selected ? colors.purpleMain : "inherit")};
   line-height: 18px;
   background-color: ${(props) =>
     props.selected ? "rgba(114, 82, 220, 14.9%)" : "transparent"};
-  border-radius: ${(props) => (props.selected ? "15px" : "none")};
+  border-radius: ${(props) => (props.selected ? "15px" : "0")};
   position: relative;
   cursor: pointer;
   &:hover {
@@ -193,7 +195,7 @@ export const NavbarElement = styled("a").withConfig({
   line-height: 18px;
   background-color: ${(props) =>
     props.selected ? "rgba(114, 82, 220, 14.9%)" : "transparent"};
-  border-radius: ${(props) => (props.selected ? "15px" : "none")};
+  border-radius: ${(props) => (props.selected ? "15px" : "0")};
 
   cursor: pointer;
   &:hover {
@@ -288,10 +290,12 @@ export const StyledDropdownArrow = styled(DropdownSVG).withConfig({
   );
 `;
 
-export const DropdownContent = styled.div`
+export const DropdownContent = styled("div").withConfig({
+  shouldForwardProp: (prop) => !["selected"].includes(prop),
+})<{ selected: boolean }>`
   display: none;
   position: absolute;
-  top: 48px;
+  top: ${({ selected }) => (selected ? "48px" : "48px")};
   z-index: 1;
   transition: display 1s ease;
 `;

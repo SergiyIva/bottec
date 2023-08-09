@@ -1,5 +1,8 @@
+type onPageChangeCallback = (newPage: HeaderPageState) => void;
+
 export type HeaderProps = {
   selectedPage?: HeaderPageState;
+  onPageChange: onPageChangeCallback;
 };
 
 export enum HeaderPageState {
