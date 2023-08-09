@@ -53,6 +53,8 @@ export const Header: React.FC<HeaderProps> = ({
   const onNavigate = (e: React.MouseEvent, url: string) => {
     e.preventDefault();
     onPageChange(urlPageStateMap[url as keyof typeof urlPageStateMap]);
+    setShowMobileNav(false);
+    setShowMobileDropdown(false);
     navigate(url);
   };
 
