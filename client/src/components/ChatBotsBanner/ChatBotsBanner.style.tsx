@@ -82,6 +82,7 @@ export const LeftSection = styled.div`
 `;
 
 export const CodeSection = styled.div`
+  margin-top: 30px;
   background-color: rgba(255, 255, 255, 0.2);
   border-width: 1px;
   border-color: #fff;
