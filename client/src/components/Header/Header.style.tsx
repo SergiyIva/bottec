@@ -46,6 +46,7 @@ const mapSocialToColor = {
   [Socials.Whatsapp]: colors.whatsAppGreen,
   [Socials.Telegram]: colors.telegramBlue,
   [Socials.VK]: colors.purpleDarker,
+  [Socials.Viber]: colors.purpleDarker,
 };
 
 export const SocialIcons = styled.div`

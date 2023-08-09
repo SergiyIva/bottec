@@ -11,6 +11,7 @@ import { ChatBotsPage } from "pages/ChatBotsPage";
 import { Header } from "components/Header";
 import { Footer } from "components/Footer";
 import { HeaderPageState } from "components/Header/Header.types";
+import { urlPageStateMap } from "components/Header/Header";
 
 function App() {
   const router = createBrowserRouter(
@@ -30,7 +31,7 @@ function App() {
 
 const Root = () => {
   const [selectedPage, setSelectedPage] = useState<HeaderPageState>(
-    HeaderPageState.None
+    urlPageStateMap[location.pathname as keyof typeof urlPageStateMap]
   );
 
   const onPageChange = (newPage: HeaderPageState) => {

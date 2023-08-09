@@ -36,7 +36,7 @@ import { ReactComponent as CloseSVG } from "assets/close-round.svg";
 import { BodyPortal } from "components/common/BodyPortal";
 import { Link, useNavigate } from "react-router-dom";
 
-const urlPageStateMap = {
+export const urlPageStateMap = {
   "/": HeaderPageState.None,
   "/webapps": HeaderPageState.Turnkey,
   "/chatbots": HeaderPageState.Turnkey,

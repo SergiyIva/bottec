@@ -2,23 +2,28 @@ import { colors } from "colors";
 import { styled } from "styled-components";
 
 export const CommonButtonWrap = styled("button").withConfig({
-  shouldForwardProp: (prop) => !["mt"].includes(prop),
+  shouldForwardProp: (prop) => !["mt", "common"].includes(prop),
 })<{
   mt?: string;
+  common?: boolean;
+  width?: string;
 }>`
-  color: ${colors.purpleMain};
+  color: ${({ common }) => (common ? "white" : colors.purpleMain)};
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
   height: 54px;
   border-radius: 14px;
-  border: 2px solid ${colors.purpleMain};
-  background-color: white;
+  border: 2px solid ${({ common }) => (common ? "white" : colors.purpleMain)};
+  /* background-color: ${({ common }) =>
+    common ? "transparent" : colors.purpleMain}; */
+  background-color: transparent;
   margin-top: ${({ mt }) => (mt ? mt : "0px")};
   transition: 0.3s ease;
   padding-inline: 22px;
   text-align: center;
+  width: ${({ width }) => (width ? width : "fit-content")};
 
   @media (max-width: 700px) {
     padding-inline: 8px;
@@ -27,8 +32,8 @@ export const CommonButtonWrap = styled("button").withConfig({
   }
 
   &:hover {
-    background-color: ${colors.purpleMain};
-    color: white;
+    background-color: ${({ common }) => (common ? "white" : colors.purpleMain)};
+    color: ${({ common }) => (common ? colors.purpleMain : "white")};
   }
   &:active {
     scale: 1.1;

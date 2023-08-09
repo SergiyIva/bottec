@@ -1,0 +1,1 @@
+export { WhatsThatSection } from "./WhatsThatSection";

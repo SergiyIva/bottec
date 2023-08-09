@@ -5,7 +5,13 @@ import { CommonButtonWrap } from "./CommonButton.style";
 
 export const CommonButton: React.FC<PropsWithChildren<CommonButtonProps>> = ({
   mt,
+  common,
+  width,
   children,
 }) => {
-  return <CommonButtonWrap mt={mt}>{children}</CommonButtonWrap>;
+  return (
+    <CommonButtonWrap mt={mt} common={common} width={width}>
+      {children}
+    </CommonButtonWrap>
+  );
 };

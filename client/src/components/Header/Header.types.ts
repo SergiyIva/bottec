@@ -19,4 +19,5 @@ export enum Socials {
   Whatsapp,
   Telegram,
   VK,
+  Viber,
 }
