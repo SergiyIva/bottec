@@ -1,9 +1,19 @@
 import { colors } from "colors";
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
+import { fadeInUp } from "react-animations";
 
+const fadeInUpAnimation = keyframes` 
+  from { 
+    opacity: 0;
+  } 
+  to {
+    opacity: 1;
+  }
+  ${fadeInUp}
+`;
 export const SectionTitle = styled("h2").withConfig({
-  shouldForwardProp: (prop) => !["mt", "color", "textAlign"].includes(prop),
-})<{ mt?: string; color?: string; textAlign?: string }>`
+  shouldForwardProp: (prop) => !["visible", "mt", "color", "textAlign"].includes(prop),
+})<{ mt?: string; color?: string; textAlign?: string; visible?: boolean; }>`
   font-size: 48px;
   font-weight: 500;
   line-height: 52px;
@@ -16,6 +26,10 @@ export const SectionTitle = styled("h2").withConfig({
     line-height: 30px;
   }
   color: ${({ color }) => (color ? color : colors.textBlack)};
+  opacity: ${({ visible }) => visible === undefined ? 1 : 0};
+  animation: ${({ visible }) => (visible ? fadeInUpAnimation : "none")};
+  animation-duration: 1s;
+  animation-fill-mode: both;
 `;
 
 export const SectionTitleHighlight = styled.span`
@@ -26,8 +40,8 @@ export const SectionTitleHighlight = styled.span`
 
 export const SectionText = styled("p").withConfig({
   shouldForwardProp: (prop) =>
-    !["maxWidth", "mt", "color", "textAlign"].includes(prop),
-})<{ maxWidth?: string; mt?: string; color?: string; textAlign?: string }>`
+    !["visible", "maxWidth", "mt", "color", "textAlign"].includes(prop),
+})<{ maxWidth?: string; mt?: string; color?: string; textAlign?: string; visible?: boolean; }>`
   width: 80%;
   max-width: ${({ maxWidth }) => (maxWidth ? maxWidth : "452px")};
   text-align: ${({ textAlign }) => (textAlign ? textAlign : "center")};
@@ -44,4 +58,8 @@ export const SectionText = styled("p").withConfig({
     line-height: 20px;
     margin-top: 8px;
   }
+  opacity: ${({ visible }) => visible === undefined ? 1 : 0};
+  animation: ${({ visible }) => (visible ? fadeInUpAnimation : "none")};
+  animation-duration: 1s;
+  animation-fill-mode: both;
 `;

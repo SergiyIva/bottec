@@ -8,12 +8,13 @@ export const ArrowButton: React.FC<PropsWithChildren<ArrowButtonProps>> = ({
   outlined,
   mt,
   inverted,
+  greyBg,
   children,
 }) => {
   return (
-    <StyledArrowButton outlined={outlined} mt={mt} inverted={inverted}>
+    <StyledArrowButton outlined={outlined} mt={mt} inverted={inverted} greyBg={greyBg}>
       {children}
-      <ArrowCircle outlined={outlined} inverted={inverted}>
+      <ArrowCircle outlined={outlined} inverted={inverted} greyBg={greyBg}>
         <SideArrowSVG />
       </ArrowCircle>
     </StyledArrowButton>

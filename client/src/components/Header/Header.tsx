@@ -108,7 +108,7 @@ export const Header: React.FC<HeaderProps> = ({
                     </MobileNavbarElement>
                     {showMobileDropdown && (
                       <>
-                        <MobileNavbarElement sub>Webapps</MobileNavbarElement>
+                        <MobileNavbarElement sub onClick={(e) => onNavigate(e, "/webapps")}>Webapps</MobileNavbarElement>
                         <MobileNavbarElement
                           sub
                           onClick={(e) => onNavigate(e, "/chatbots")}
@@ -161,7 +161,7 @@ export const Header: React.FC<HeaderProps> = ({
                     selected={selectedPage === HeaderPageState.Turnkey}
                   >
                     <DropdownItem>
-                      <a href="#">Webapps</a>
+                      <Link to={"/webapps"} >Webapps</Link>
                     </DropdownItem>
                     <DropdownItem>
                       <Link

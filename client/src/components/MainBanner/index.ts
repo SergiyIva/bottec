@@ -1,1 +1,1 @@
-export { MainBanner } from "./MainBanner";
+export { MainBanner } from "./MainBanner.tsx";

@@ -1,17 +1,12 @@
-import React, { useState } from "react";
-import { MainPage } from "pages/MainPage";
-import {
-  Outlet,
-  Route,
-  RouterProvider,
-  createBrowserRouter,
-  createRoutesFromElements,
-} from "react-router-dom";
-import { ChatBotsPage } from "pages/ChatBotsPage";
-import { Header } from "components/Header";
-import { Footer } from "components/Footer";
-import { HeaderPageState } from "components/Header/Header.types";
-import { urlPageStateMap } from "components/Header/Header";
+import {useState} from "react";
+import {MainPage} from "pages/MainPage";
+import {createBrowserRouter, createRoutesFromElements, Outlet, Route, RouterProvider,} from "react-router-dom";
+import {ChatBotsPage} from "pages/ChatBotsPage";
+import {Header} from "components/Header";
+import {Footer} from "components/Footer";
+import {HeaderPageState} from "components/Header/Header.types";
+import {urlPageStateMap} from "components/Header/Header";
+import {WebApp} from "./pages/WebApp/WebApp.tsx";
 
 function App() {
   const router = createBrowserRouter(
@@ -23,6 +18,7 @@ function App() {
       >
         <Route index element={<MainPage />} />
         <Route path="chatbots" element={<ChatBotsPage />} />
+        <Route path="webapps" element={<WebApp />} />
       </Route>
     )
   );
